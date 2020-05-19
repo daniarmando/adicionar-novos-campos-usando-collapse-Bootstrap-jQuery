@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Adicionar mais campos com jQuery</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+  <link href="vendor/fontawesome-free-5.12.1-web/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div class="card">
+    <div class="card-header">
+      <b>Tabela da Declaração de Salários</b> 
+      <span style="position: relative; top: -5px; left: -3px; opacity: .6" data-toggle="tooltip" 
+        data-placement="top" 
+          title="Preencha estes campos para gerar a tabela da declaração de salários, clique no botão com sinal de adição para adicionar um novo ano e no botão com sinal de subtração para remover.">
+          <i class="fas fa-info-circle text-secondary"></i>
+       </span>
+    </div>
+    <div class="card-body">        
+      <div id="boxCamposTabelaDeclaracaoSalario">
+          <div class="campos-tabela-declaracao-salario" id="_coluna_1" style="opacity: 0;">                 
+            <div id="accordion_coluna_1">
+              <div class="row" style="margin:1px;">                	
+                <div class="card" style="width: calc(100% - 80px)">
+                  <div class="card-header" id="heading_coluna_1">                    
+                    <div class="accordion__header">
+                      <span style="margin: 5px;"><b>Ano:</b></span>                
+                      <input type="text" name="ano_coluna_1" maxlength="4" class="form-control" style="max-width: 70px; height: 30px; margin: 3px; font-weight: bold;">                                                                                                                  
+                      <input type="hidden" class="vars" name="vars" value="ano_coluna_1">
+                      <input type="hidden" class="obrigatorios" name="obrigatorios" value="ano_coluna_1">
+                      <span id="accordionIcone_coluna_1" 
+                        style="cursor: pointer; font-size: 1.8em; position: absolute; right: 0; transform: rotate(180deg); transition: transform .5s"
+                        data-toggle="collapse" data-target="#collapse_coluna_1" aria-expanded="true" aria-controls="collapse_coluna_1"><i class="fas fa-chevron-up"></i></span>                                  
+                    </div>                    
+                  </div>
+                  <div id="collapse_coluna_1" class="collapse show" aria-labelledby="heading_coluna_1" data-parent="#accordion_coluna_1">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-3">
+                            <span>Janeiro:</span>   
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_janeiro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>                              
+                            <input type="hidden" class="vars" name="vars" value="valor_janeiro_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Fevereiro:</span>     
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_fevereiro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>                                
+                            <input type="hidden" class="vars" name="vars" value="valor_fevereiro_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Março:</span> 
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_marco_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_marco_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Abril:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_abril_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_abril_coluna_1">                              
+                          </div>
+                      </div>  
+                      <br />
+                      <div class="row">
+                        <div class="col-md-3">
+                            <span>Maio:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_maio_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_maio_coluna_1">                              
+                           </div>
+                          <div class="col-md-3">
+                            <span>Junho:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_junho_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_junho_coluna_1">                              
+                        </div>
+                          <div class="col-md-3">
+                            <span>Julho:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_julho_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>                                                                                                                  
+                            <input type="hidden" class="vars" name="vars" value="valor_julho_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Agosto:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_agosto_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_agosto_coluna_1">                              
+                        </div>
+                      </div>   
+                      <br />
+                      <div class="row">
+                        <div class="col-md-3">
+                            <span>Setembro:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_setembro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>                                                                                                                 
+                            <input type="hidden" class="vars" name="vars" value="valor_setembro_coluna_1">                              
+                        </div>
+                          <div class="col-md-3">
+                            <span>Outubro:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_outubro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_outubro_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Novembro:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_novembro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>                                                                                                                
+                            <input type="hidden" class="vars" name="vars" value="valor_novembro_coluna_1">                              
+                          </div>
+                          <div class="col-md-3">
+                            <span>Dezembro:</span>                
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                              </div>
+                              <input type="text" name="valor_dezembro_coluna_1" maxlength="15" class="form-control" style="max-width: 230px;" onkeypress="return(MascaraMoeda(this,'.',',',event))">                                                                                                                  
+                            </div>
+                            <input type="hidden" class="vars" name="vars" value="valor_dezembro_coluna_1">                              
+                          </div>
+                      </div>    
+                      <span id="accordionIconeAbaixo_coluna_1" style="font-size: 1.8em; float: right; padding: 25px 25px 10px 0; cursor: pointer;"
+                        data-toggle="collapse" data-target="#collapse_coluna_1" aria-expanded="true" aria-controls="collapse_coluna_1"><i class="fas fa-caret-square-up"></i></span>                                  
+                      <br />  
+                    </div>
+                  </div>
+                </div>
+                <div style="width: 80px">
+                  <b class="titulo-coluna" style="display: none">Coluna 1</b> 
+                  <button type="button" class="botao botao-adicionar" name="botao-adicionar_coluna_1" onclick="adicionar()" data-idPai="_coluna_1" title="adicionar novo ano abaixo"><i class="fas fa-plus"></i></button>
+                  <button type="button" class="botao botao-remover" name="botao-remover_coluna_1" onclick="remover(this)" data-idPai="_coluna_1" title="remover ano" disabled><i class="fas fa-minus"></i></button>                                                          	
+                </div>
+              </div>                                                                                
+            </div> 
+          </div>
+      </div>
+      <input type="hidden" id="quantidadeDeColunas" value="${quantidadeDeColunas!}" name="quantidadeDeColunas">
+      <input type="hidden" name="vars" value="quantidadeDeColunas">        
+    </div>
+</div> 
+
+<script defer src="vendor/fontawesome-free-5.12.1-web/js/all.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+<script src="js/tooltip.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
